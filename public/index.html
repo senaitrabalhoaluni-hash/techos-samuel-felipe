@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TechOS — Gestão de Ordens de Serviço</title>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <h1>TechOS</h1>
+      <span>TechServices — Gestão de Ordens de Serviço</span>
+    </div>
+    <div class="topbar-actions">
+      <a href="/api-docs" target="_blank" class="btn-secondary">Swagger API</a>
+      <button id="btnLogout" class="btn-danger hidden">Sair</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Tela de Login -->
+    <section id="loginSection" class="card login-card">
+      <h2>Acesso ao Sistema</h2>
+      <p class="subtitle">Entre com suas credenciais ou cadastre um novo usuário técnico.</p>
+
+      <form id="loginForm">
+        <label for="loginEmail">E-mail</label>
+        <input type="email" id="loginEmail" required placeholder="samuel@techservices.com" />
+
+        <label for="loginSenha">Senha</label>
+        <input type="password" id="loginSenha" required placeholder="••••••" />
+
+        <button type="submit" class="btn-primary">Entrar</button>
+      </form>
+
+      <hr class="divider" />
+
+      <details>
+        <summary>Primeiro acesso? Cadastrar usuário</summary>
+        <form id="registerForm" class="mt-12">
+          <label for="regNome">Nome</label>
+          <input type="text" id="regNome" required placeholder="Samuel Felipe" />
+
+          <label for="regEmail">E-mail</label>
+          <input type="email" id="regEmail" required placeholder="samuel@techservices.com" />
+
+          <label for="regSenha">Senha</label>
+          <input type="password" id="regSenha" required minlength="6" placeholder="Mínimo 6 caracteres" />
+
+          <button type="submit" class="btn-secondary">Cadastrar e Entrar</button>
+        </form>
+      </details>
+
+      <p id="authFeedback" class="feedback"></p>
+    </section>
+
+    <!-- Painel Principal -->
+    <section id="dashboardSection" class="hidden">
+      <div class="grid-2">
+        <div class="card">
+          <h2>Nova Ordem de Serviço</h2>
+          <form id="osForm">
+            <label for="clienteSelect">Cliente</label>
+            <select id="clienteSelect" required></select>
+
+            <label for="equipamento">Equipamento</label>
+            <input type="text" id="equipamento" required placeholder="Ex.: Notebook Dell Latitude" />
+
+            <label for="tipoOs">Tipo de Atendimento (Factory Method)</label>
+            <select id="tipoOs">
+              <option value="corretiva">Corretiva</option>
+              <option value="preventiva">Preventiva</option>
+              <option value="urgente">Urgente</option>
+            </select>
+
+            <label for="defeito">Defeito Relatado</label>
+            <textarea id="defeito" rows="3" required placeholder="Descreva o problema..."></textarea>
+
+            <button type="submit" class="btn-primary">Registrar OS</button>
+          </form>
+        </div>
+
+        <div class="card">
+          <div class="list-header">
+            <h2>Ordens de Serviço</h2>
+            <select id="filtroStatus">
+              <option value="TODAS">Todos os status</option>
+              <option value="Aberta">Aberta</option>
+              <option value="Em Análise">Em Análise</option>
+              <option value="Aguardando Peça">Aguardando Peça</option>
+              <option value="Concluída">Concluída</option>
+              <option value="Cancelada">Cancelada</option>
+            </select>
+          </div>
+          <div id="osLista" class="os-list"></div>
+        </div>
+      </div>
+      <p id="dashFeedback" class="feedback"></p>
+    </section>
+  </main>
+
+  <script src="/js/app.js"></script>
+</body>
+</html>

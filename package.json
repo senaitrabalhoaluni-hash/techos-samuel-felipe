@@ -1,0 +1,34 @@
+{
+  "name": "techos-samuel-felipe",
+  "version": "1.0.0",
+  "description": "Projeto desenvolvido de forma individual na Unidade Curricular de **Desenvolvimento de Sistemas** (200h / 40 Encontros).",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+ "scripts": {
+    "start": "node server.js",
+    "test": "node --test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/senaitrabalhoaluni-hash/techos-samuel-felipe.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/senaitrabalhoaluni-hash/techos-samuel-felipe/issues"
+  },
+  "homepage": "https://github.com/senaitrabalhoaluni-hash/techos-samuel-felipe#readme",
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "cors": "^2.8.6",
+    "dotenv": "^18.0.10",
+    "express": "^5.3.0",
+    "jsonwebtoken": "^9.0.3",
+    "mysql2": "^3.24.6",
+    "swagger-ui-express": "^5.0.1"
+  }
+}
